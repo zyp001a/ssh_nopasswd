@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+addr=$@
+if [ ! -f ~/.ssh/id_rsa ]; then
+	 echo generate ~/.ssh/id_rsa
+	 yes y | ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa >/dev/null
+fi
+cat ~/.ssh/id_rsa.pub | ssh $addr 'cat >> .authorized_keys; mkdir -p .ssh; mv .authorized_keys .ssh/authorized_keys'
