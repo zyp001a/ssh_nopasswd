@@ -5,7 +5,9 @@ Usage:
 ./ssh_nopasswd user@8.8.8.8
 ```
 
-all ssh options are supported.
+All ssh options are supported.
+
+Run script once, you can login with the same option without password using SSH. For other user, they still need password.
 
 Ref:
 * http://www.linuxproblem.org/art_9.html
