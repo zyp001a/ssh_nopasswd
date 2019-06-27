@@ -5,3 +5,4 @@ if [ ! -f ~/.ssh/id_rsa ]; then
 	 yes y | ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa >/dev/null
 fi
 cat ~/.ssh/id_rsa.pub | ssh $addr 'cat >> .authorized_keys; chattr -a .ssh/authorized_keys; chattr -i .ssh/authorized_keys; mkdir -p .ssh; cat .authorized_keys >>.ssh/authorized_keys; rm .authorized_keys; chmod 600 .ssh/authorized_keys'
+echo success
